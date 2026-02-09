@@ -57,14 +57,15 @@
 }
 
 .appeardown {
-  animation: appeardown 2s ease forwards;
+  animation: appeardown 4s ease forwards;
 }
 
 @keyframes appeardown {
   0% {
-    opacity: 0;
+    opacity: 1;
     top: -80vh;
   }
+
   100% {
     opacity: 1;
     top: 0;

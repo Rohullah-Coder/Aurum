@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Library || About Aurum</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="./about.css" />
+  </head>
+  <body>
+    <nav
+      class="fixed w-full flex justify-between p-2 items-center backdrop-blur-md text-white/70 bg-[#1a1a1a]/90 z-40">
+      <div class="flex text-center items-center select-none">
+        <img src="../media/logo png.png" class="h-[60px] w-[80px]" />
+        <p class="text-xl font-[monthera] text-white/70">
+          <span class="text-[#D4af37]">Aurum </span>Library
+        </p>
+      </div>
+      <ul class="flex gap-6 text-md h-full p-2 text-white/70">
+        <li
+          class="hover:text-[#D4af37] after:content-'' hover:after:w-full after:w-0 after:h-[1px] after:block after:bg-[#D4af37]">
+          <a href="./index.html">Home</a>
+        </li>
+        <li
+          class="text-[#D4af37] hover:after:w-full after:content-'' after:w-full after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+          <a href="./About.html">About Us</a>
+        </li>
+        <li
+          class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+          <a href="#">Categories</a>
+        </li>
+        <li
+          class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+          <a href="#">Authors</a>
+        </li>
+        <li
+          class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+          <a href="#">All Books</a>
+        </li>
+        <li
+          class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+          <a href="../htmls/contact.html">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex gap-4 justify-center items-center text-xl">
+        <div class="relative">
+          <i
+            class="fas fa-cart-shopping cursor-pointer hover:text-[#D4af37] transition-all text-2xl"
+            id="carticon"></i>
+          <p
+            id="cartnum"
+            class="text-[#1a1a1a] absolute text-[11px] font-bold rounded-full z-3 left-1/2 top-[27%] translate-x-[-50%] translate-y-[-50%] select-none">
+            0
+          </p>
+        </div>
+        <div class="xl:hidden">
+          <i class="fas fa-bars cursor-pointer hover:text-[#D4af37] transition-all"></i>
+        </div>
+        <i
+          class="fa-regular fa-moon cursor-pointer hover:text-[#D4af37] transition-all"
+          id="moodBtn"
+          onclick="changeMood()"></i>
+      </div>
+    </nav>
+    <section class="about">
+      <div class="about-logo">
+        <div class="about-logo-text">AURUM</div>
+        <div>
+          <span>The most amaizing E-library</span>
+        </div>
+      </div>
+      <div class="about-container">
+        <h2>Who We Are</h2>
+        <p>
+          We are a small team of young creators who believe in the power of reading and shared
+          knowledge. This e-library was created to make learning simpler, more accessible, and more
+          human in a digital world.
+        </p>
+
+        <p>
+          We collect, organize, and share books and ideas for anyone who is curious, eager to learn,
+          or looking to grow — wherever they are.
+        </p>
+        <h2>Our team members</h2>
+        <div class="about-cards-container">
+          <div class="about-cards">
+            <h2>Ruhollah</h2>
+            <div class="card-inner"></div>
+          </div>
+          <div class="about-cards">
+            <h2>Ferdows</h2>
+            <div class="card-inner"></div>
+          </div>
+          <div class="about-cards">
+            <h2>Latif</h2>
+            <div class="card-inner"></div>
+          </div>
+          <div class="about-cards">
+            <h2>Mahdi</h2>
+            <div class="card-inner"></div>
+          </div>
+        </div>
+        <div class="about-block">
+          <h3>Our Mission</h3>
+          <p>
+            Our mission is to make knowledge easy to access, enjoyable to explore, and meaningful to
+            share.
+          </p>
+          <p>
+            We aim to remove barriers to learning by building a digital library that is simple,
+            welcoming, and open — a place where stories, information, and creativity come together
+            for everyone.
+          </p>
+        </div>
+
+        <div class="about-block">
+          <h3>Our Vision</h3>
+          <p>
+            We envision a future where learning is not limited by location, background, or
+            institutions.
+          </p>
+          <p>
+            Our goal is to build an evolving e-library that feels modern and human — a space where
+            readers can discover new ideas, expand their thinking, and connect with knowledge in a
+            natural way.
+          </p>
+          <p>
+            As a young and growing team, we are committed to learning, improving, and reimagining
+            what an online library can be.
+          </p>
+        </div>
+
+        <div class="about-block values">
+          <h3>Our Values</h3>
+
+          <div class="value-item">
+            <h4 class="blur-text">Passion for Knowledge</h4>
+            <p class="blur-text">
+              We believe knowledge changes lives. Everything we build is driven by curiosity,
+              creativity, and a love for reading and learning.
+            </p>
+          </div>
+
+          <div class="value-item">
+            <h4 class="blur-text">Accessibility</h4>
+            <p class="blur-text">
+              Knowledge should be open and reachable. We design our library to be easy to use,
+              inclusive, and welcoming to readers from all backgrounds.
+            </p>
+          </div>
+
+          <div class="value-item">
+            <h4 class="blur-text">Growth & Innovation</h4>
+            <p class="blur-text">
+              We embrace experimentation and continuous improvement. As we grow, our library grows
+              with us.
+            </p>
+          </div>
+
+          <div class="value-item">
+            <h4 class="blur-text">Community</h4>
+            <p class="blur-text">
+              A library is more than content — it’s people. We value shared learning, collaboration,
+              and respect within our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h2>AURUN</h2>
+          <p>
+            AURUN is a digital library built to make knowledge easy to access, simple to explore,
+            and free to inspire curious minds everywhere.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Popular Books</a></li>
+            <li><a href="#">Authors</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AURUN. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
