@@ -1,0 +1,86 @@
+::-webkit-scrollbar {
+  display: none;
+}
+@font-face {
+  font-family: "geraldine";
+  src: url("./fonts/GERALDINE\ PERSONAL\ USE.ttf");
+}
+@font-face {
+  font-family: "mollani";
+  src: url("./fonts/Mollani-Regular.ttf");
+}
+@font-face {
+  font-family: "transcity";
+  src: url("./fonts/Transcity\ DEMO.otf");
+}
+@font-face {
+  font-family: "moralana";
+  src: url("./fonts/Moralana\ DEMO.otf");
+}
+@font-face {
+  font-family: "monthera";
+  src: url("./fonts/Monthera.otf");
+}
+
+/* golden-color [#D4af37] bg-[#1a1a1a]*/
+.moveleft {
+  animation: moveleft 0.8s 3s ease-in-out forwards;
+}
+.moveleft1 {
+  animation: moveleft 0.8s 2.4s ease-in-out forwards;
+}
+.moveleft2 {
+  animation: moveleft 0.8s 1.8s ease-in-out forwards;
+}
+
+@keyframes moveleft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.appeartext {
+  animation: appeartext 1s linear forwards;
+}
+@keyframes appeartext {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.appeardown {
+  animation: appeardown 2s ease forwards;
+}
+
+@keyframes appeardown {
+  0% {
+    opacity: 0;
+    top: -80vh;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.lowback {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8)), url("./media/bookscover/Suspense.Thriller\ book.jpg");
+  background-size: cover;
+}
+
+.input:focus + .label {
+  top: -15px;
+}
+
+/* .input:not(:placeholder-shown) + .label {
+  top: -15px;
+} */

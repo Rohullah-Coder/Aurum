@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <header class="w-full h-screen flex bg-[#1a1a1a]">
+      <nav
+        class="fixed w-full flex justify-between p-2 items-center backdrop-blur-md text-white/70 bg-[#1a1a1a]/90 z-40">
+        <div class="flex text-center items-center select-none">
+          <img src="../media/logo png.png" class="h-[60px] w-[80px]" />
+          <p class="text-xl font-[monthera] text-white/70">
+            <span class="text-[#D4af37]">Aurum </span>Library
+          </p>
+        </div>
+        <ul class="flex gap-6 text-md h-full p-2 text-white/70">
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="../index.html">Home</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">About Us</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">Categories</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">Authors</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">All Books</a>
+          </li>
+          <li
+            class="text-[#D4af37] after:content-'' after:w-full after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="flex gap-4 justify-center items-center text-xl">
+          <div class="relative">
+            <i
+              id="carticon"
+              class="fas fa-cart-shopping cursor-pointer hover:text-[#D4af37] transition-all text-2xl"></i>
+            <p
+              id="cartnum"
+              class="text-[#1a1a1a] absolute text-[11px] font-bold rounded-full z-3 left-1/2 top-[27%] translate-x-[-50%] translate-y-[-50%] select-none">
+              0
+            </p>
+          </div>
+          <div class="xl:hidden">
+            <i class="fas fa-bars cursor-pointer hover:text-[#D4af37] transition-all"></i>
+          </div>
+          <i class="fa-regular fa-moon cursor-pointer hover:text-[#D4af37] transition-all"></i>
+        </div>
+      </nav>
+
+      <!--contact hero section -->
+
+      <section class="py-34 px-68 flex w-screen h-screen justify-center items-center relative">
+        <div class="relative w-full h-full">
+          <img src="../media/logo png.png" class="w-44 absolute top-6 left-[-80px]" />
+          <img src="../media/logo png.png" class="w-84 absolute top-42 right-[-140px]" />
+          <img src="../media/logo png.png" class="w-64 absolute bottom-[-80px] left-[-100px]" />
+          <img
+            src="../media/logo png.png"
+            class="w-194 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]" />
+          <div
+            class="w-full h-full backdrop-blur-xl rounded-md border-1 bg-[#D4af37]/5 border-[#D4af37]/5 overflow-hidden">
+            <nav class="w-full p-2 justify-center">
+              <ul class="flex gap-10 text-[#D4af37] justify-center">
+                <li class="border-b-3 cursor-pointer" onclick="contactformopen()" id="contactbtn">
+                  Contact
+                </li>
+                <li class="border-b cursor-pointer" onclick="requestformopen()" id="requestbtn">
+                  Request
+                </li>
+                <li class="border-b cursor-pointer" onclick="feedbackformopen()" id="feedbtn">
+                  Feedback
+                </li>
+              </ul>
+            </nav>
+
+            <!-- contact form -->
+            <form
+              action="#"
+              id="contactform"
+              class="w-full h-full flex flex-col gap-4 justify-center items-center absolute">
+              <!-- user name code -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-user text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="text"
+                    id="contactname"
+                    required
+                    maxlength="15"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="contactname"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:text-[#D4af37]"
+                    >Your Name</label
+                  >
+                </span>
+              </div>
+
+              <!-- email code -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-envelope text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="contactemail"
+                    required
+                    id="email"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="contactemail"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:[#D4af37]"
+                    >Valid Email Address</label
+                  >
+                </span>
+              </div>
+              <!-- message -->
+              <textarea
+                name="text"
+                id="contacttext"
+                placeholder="Message"
+                class="resize-none p-2 font-thin text-sm text-[#D4af37] outline-none w-54 overflow-hidden border-1 border-[#D4af37]/20"
+                cols=""
+                rows="5"></textarea>
+              <input
+                type="submit"
+                required
+                class="text-white/90 px-4 py-1 rounded-md border bg-green-700 border-green-700" />
+            </form>
+
+            <!-- request form -->
+            <form
+              action="#"
+              id="requestform"
+              class="w-full h-full hidden flex-col gap-4 justify-center items-center absolute">
+              <!-- user name code -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-user text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="text"
+                    id="requestname"
+                    required
+                    maxlength="15"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="requestname"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:text-[#D4af37]"
+                    >Your Name</label
+                  >
+                </span>
+              </div>
+
+              <!-- email code -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-envelope text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="requestemail"
+                    required
+                    id="email"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="requestemail"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:[#D4af37]"
+                    >Valid Email Address</label
+                  >
+                </span>
+              </div>
+              <!-- book name -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-envelope text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="requestbook"
+                    required
+                    id="text"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="requestbook"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:[#D4af37]"
+                    >Book you want</label
+                  >
+                </span>
+              </div>
+              <input
+                type="submit"
+                required
+                class="text-white/90 px-4 py-1 rounded-md border bg-green-700 border-green-700" />
+            </form>
+
+            <!-- feedback form -->
+            <form
+              action="#"
+              id="feedform"
+              class="w-full h-full hidden flex-col gap-4 justify-center items-center absolute">
+              <!-- user name code -->
+              <div class="flex w-62 justify-center items-center px-4 py-2 gap-2 relative">
+                <i class="fa-regular fa-user text-[#D4af37]"></i>
+                <span class="w-full realtive h-full border-b border-[#D4af37]">
+                  <input
+                    type="text"
+                    id="feedname"
+                    required
+                    maxlength="15"
+                    class="peer w-full h-full py-1 px-2 outline-none text-[#D4af37] bg-transparent" />
+                  <label
+                    for="feedname"
+                    class="absolute left-12 top-2 transition-all duration-300 text-[#D4af37] peer-focus:top-[-15px] peer-focus:text-sm peer-focus:text-[#D4af37] peer-valid:top-[-15px] peer-valid:text-sm peer-valid:text-[#D4af37]"
+                    >Your Name</label
+                  >
+                </span>
+              </div>
+
+              <!-- message -->
+              <textarea
+                name="text"
+                id="fetext"
+                placeholder="Title"
+                class="resize-none p-2 font-thin text-sm text-[#D4af37] outline-none w-54 overflow-hidden border-1 border-[#D4af37]/20"
+                cols=""
+                rows="5"></textarea>
+              <input
+                type="submit"
+                required
+                class="text-white/90 px-4 py-1 rounded-md border bg-green-700 border-green-700" />
+            </form>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- js codes -->
+  </body>
+</html>

@@ -1,0 +1,558 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="w-full h-screen flex bg-[#1a1a1a]">
+      <nav
+        class="fixed w-full flex justify-between p-2 items-center backdrop-blur-md text-white/70 bg-[#1a1a1a]/90 z-40">
+        <div class="flex text-center items-center select-none">
+          <img src="./media/logo png.png" class="h-[60px] w-[80px]" />
+          <p class="text-xl font-[monthera] text-white/70">
+            <span class="text-[#D4af37]">Aurum </span>Library
+          </p>
+        </div>
+        <ul class="flex gap-6 text-md h-full p-2 text-white/70">
+          <li
+            class="text-[#D4af37] after:content-'' after:w-full after:h-[1px] after:block after:bg-[#D4af37]">
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">About Us</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">Categories</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">Authors</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="#">All Books</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="./htmls/contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <div class="flex gap-4 justify-center items-center text-xl">
+          <div class="relative">
+            <i
+              class="fas fa-cart-shopping cursor-pointer hover:text-[#D4af37] transition-all text-2xl"
+              id="carticon"></i>
+            <p
+              id="cartnum"
+              class="text-[#1a1a1a] absolute text-[11px] font-bold rounded-full z-3 left-1/2 top-[27%] translate-x-[-50%] translate-y-[-50%] select-none">
+              0
+            </p>
+          </div>
+          <div class="xl:hidden">
+            <i class="fas fa-bars cursor-pointer hover:text-[#D4af37] transition-all"></i>
+          </div>
+          <i
+            class="fa-regular fa-moon cursor-pointer hover:text-[#D4af37] transition-all"
+            id="moodBtn"
+            onclick="changeMood()"></i>
+        </div>
+      </nav>
+      <!-- cart quantity -->
+      <article
+        id="cartpage"
+        class="fixed ease transition-all top-16 rounded backdrop-blur-sm bg-black/80 right-4 w-80 h-[70%] z-50 p-4 text-center flex-col gap-2 hidden">
+        <div class="flex items-center gap-2">
+          <button
+            class="border w-full flex items-center gap-2 justify-start border-transparent hover:border-red-500 rounded-md transition-all cursor-pointer text-red-500 p-1 max-w-max"
+            onclick="cleanCart(0)">
+            <i class="fas fa-trash"></i>
+            Remove All
+          </button>
+          <h1 class="w-full text-center text-sm text-white border-l">
+            You have (
+            <span id="cartnum2" class="text-green-500 select-none">0</span>
+            ) <span id="itemItems"></span>
+          </h1>
+        </div>
+        <!-- shopping cart container -->
+        <div class="w-full h-full flex flex-col gap-2 pt-8">
+          <article class="flex gap-4 border-b p-2 py-4 justify-between text-white/60 text-sm">
+            <img
+              src="./media/bookscover/King-Arthur book.jpg"
+              alt=""
+              class="rounded-sm w-20 border" />
+            <div class="w-full h-full flex flex-col gap-2">
+              <span class="flex gap-2 justify-between text-center">
+                <span class="flex flex-col gap-1">
+                  <p>Price</p>
+                  <span class="flex"
+                    >$
+                    <p class="flex" id="cartPrice">14.85</p></span
+                  >
+                </span>
+                <span class="flex flex-col gap-1">
+                  <p>Number</p>
+                  <p id="CartAmount">0</p>
+                </span>
+                <span class="flex flex-col gap-1">
+                  <p>total</p>
+                  <span class="flex"
+                    >$
+                    <p id="cartPriceTotal">0</p></span
+                  >
+                </span>
+              </span>
+              <span class="w-full justify-between flex">
+                <button class="p-1 px-2 bg-red-500 text-white/80">Remove</button>
+                <button class="p-1 px-2 bg-green-700 text-white/80">Purchase</button>
+              </span>
+            </div>
+          </article>
+        </div>
+      </article>
+      <!-- hero section -->
+
+      <section class="flex justify-between p-32 w-full h-full relative">
+        <div class="w-full h-full flex flex-col gap-8 pt-16 text-white/60 appeartext">
+          <h1 class="text-4xl font-[garakdine] font-bold">
+            Wellcome to
+            <span class="text-[#D4af37] font-[moralana] font-normal">Aurum</span> library
+          </h1>
+          <p class="max-w-[70%] leading-8 text-lg font-[garadine]">
+            Aurum Library is an online knowledge platform providing digital books, research
+            articles, and learning resources. It offers easy access to e-books, online databases,
+            study tools, and virtual workshops, supporting self-learning, research, and education
+            for users anytime, anywhere.
+          </p>
+          <div class="flex gap-10">
+            <a href="" class="px-4 py-2 border border-[#D4af37] rounded-full text-[#D4af37]"
+              >Read More</a
+            >
+            <div
+              class="border max-w-max rounded-full flex items-center justify-center text-center px-4">
+              <input
+                type="text"
+                name=""
+                id=""
+                maxlength="30"
+                placeholder="Search for a book"
+                class="outline-none text-white/70 w-full text-md px-4 py-1" />
+              <i class="fas fa-search cursor-pointer hover:text-[#D4af37] transition-all px-2"></i>
+            </div>
+          </div>
+        </div>
+        <span
+          class="w-[45vw] h-[90vh] bg-white/70 absolute right-20 top-[0] rounded-b-[991px] appeardown shadow-md shadow-white/50"></span>
+        <div class="w-[50vw] relative z-10">
+          <img
+            src="./media/bookscover/beyond the ocean door.jpg"
+            class="absolute h-74 w-50 translate-x-42 translate-y-16 shadow-2xl shadow-[#1a1a1a] hover:border-1 border-[#D4af37] transition-border ease-in-out hover:z-3 transition-all moveleft2 opacity-0" />
+          <img
+            src="./media/bookscover/dune book.png"
+            class="absolute h-90 w-60 translate-x-20 translate-y-8 shadow-md shadow-black hover:border-1 border-[#D4af37] transition-border ease-in-out hover:z-3 transition-all moveleft1 opacity-0" />
+          <img
+            src="./media/bookscover/paradx book.png"
+            class="absolute h-104 w-70 shadow-md shadow-black hover:border-1 border-[#D4af37] transition-border ease-in-out hover:z-3 transition-all moveleft opacity-0" />
+        </div>
+        <i
+          class="fas fa-arrow-down absolute bottom-20 left-1/2 text-[#D4af37] animate-bounce duration-700"></i>
+      </section>
+    </header>
+    <main>
+      <!-- premium books -->
+
+      <section
+        class="w-full h-screen bg-[#1a1a1a] flex items-center flex-col p-24 py-8 gap-8 text-white/60 relative">
+        <h1 class="font-[monthera] text-2xl text-[#D4af37]">Our premium Books</h1>
+
+        <div class="w-full h-full flex flex-col gap-8 px-20">
+          <div class="w-full h-full flex gap-8">
+            <article
+              class="w-full h-full bg-white/40 hover:bg-[#D4af37] transition-all backdrop-blur-md rounded-md p-4 flex gap-8 text-[#1a1a1a]">
+              <img
+                src="./media/bookscover/Suspense.Thriller book.jpg"
+                alt=""
+                class="rounded w-40 h-60" />
+              <div class="w-full h-full flex flex-col gap-4">
+                <h1 class="text-2xl">Darkness waits book</h1>
+                <p class="text-sm">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste sit aut
+                  nihil reiciendis pariatur, obcaecati excepturi alias est nemo sequi eligendi. Quia
+                  ea non ratione iste quod, in nulla.
+                </p>
+                <button class="p-1 px-4 border rounded-full max-w-max" onclick="addtocart(1, 30)">
+                  <i class="fas fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="w-full h-full bg-white/40 hover:bg-[#D4af37] transition-all backdrop-blur-md rounded-md p-4 flex gap-8 text-[#1a1a1a]">
+              <img src="./media/bookscover/King-Arthur book.jpg" alt="" class="rounded w-40 h-60" />
+              <div class="w-full h-full flex flex-col gap-4">
+                <h1 class="text-2xl">King Arthur and her knights book</h1>
+                <p class="text-sm">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste sit aut
+                  nihil reiciendis pariatur, obcaecati excepturi alias est nemo sequi eligendi. Quia
+                  ea non ratione iste quod, in nulla.
+                </p>
+                <button class="p-1 px-4 border rounded-full max-w-max" onclick="addtocart(1, 23.3)">
+                  <i class="fas fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="w-full h-full flex gap-8">
+            <article
+              class="w-full h-full bg-white/40 hover:bg-[#D4af37] transition-all backdrop-blur-md rounded-md p-4 flex gap-8 text-[#1a1a1a]">
+              <img src="./media/bookscover/paradx book.png" alt="" class="rounded w-40 h-60" />
+              <div class="w-full h-full flex flex-col gap-4">
+                <h1 class="text-2xl">Paradox book</h1>
+                <p class="text-sm">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste sit aut
+                  nihil reiciendis pariatur, obcaecati excepturi alias est nemo sequi eligendi. Quia
+                  ea non ratione iste quod, in nulla.
+                </p>
+                <button class="p-1 px-4 border rounded-full max-w-max" onclick="addtocart(1, 12.2)">
+                  <i class="fas fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="w-full h-full bg-white/40 hover:bg-[#D4af37] transition-all backdrop-blur-md rounded-md p-4 flex gap-8 text-[#1a1a1a]">
+              <img src="./media/bookscover/GameOfThrones1.jpg" alt="" class="rounded w-40 h-60" />
+              <div class="w-full h-full flex flex-col gap-4">
+                <h1 class="text-2xl">Game of Thrones book</h1>
+                <p class="text-sm">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero iste sit aut
+                  nihil reiciendis pariatur, obcaecati excepturi alias est nemo sequi eligendi. Quia
+                  ea non ratione iste quod, in nulla.
+                </p>
+                <button class="p-1 px-4 border rounded-full max-w-max" onclick="addtocart(1, 10.5)">
+                  <i class="fas fa-cart-shopping"></i> Add to Cart
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- semi catagory section -->
+      <section class="min-h-[50vh] bg-[#1a1a1a] p-16 flex flex-col pt-48 gap-6">
+        <h1
+          class="text-[#D4af37] border px-12 py-2 w-max rounded-tl-2xl rounded-br-2xl text-2xl font-[monthera] m-auto">
+          Explore Our Books
+        </h1>
+        <div class="flex flex-col gap-10">
+          <!-- story books short list -->
+          <article class="flex flex-col gap-4 text-[#D4af37]">
+            <h1 class="text-xl">Fiction Books</h1>
+            <div class="w-full h-60 flex gap-8">
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/fiction/fiction book.2jpg.png"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/fiction/fiction book.3jpg.png"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/fiction/fiction book.4jpg.png"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/fiction/fiction book.5jpg.png"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/fiction/fiction book.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a
+                href="#"
+                class="w-full flex justify-center gap-2 items-center text-xl p-2 hover:border transition-all rounded flex-col text-center"
+                ><i class="fas fa-arrow-right text-4xl"></i> More Books</a
+              >
+            </div>
+          </article>
+          <!-- scince book short list -->
+          <article class="flex flex-col gap-4 text-[#D4af37]">
+            <h1 class="text-xl">Non-Fiction Books</h1>
+            <div class="w-full h-60 flex gap-8">
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/non-fiction/non-fiction.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/non-fiction/non-fiction.2jpg.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/non-fiction/non-fiction.3jpg.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/non-fiction/non-fiction.4jpg.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/non-fiction/non-fiction.5jpg.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a
+                href="#"
+                class="w-full flex justify-center gap-2 items-center text-xl p-2 hover:border transition-all rounded flex-col text-center"
+                ><i class="fas fa-arrow-right text-4xl"></i> More Books</a
+              >
+            </div>
+          </article>
+          <!-- researches short list -->
+          <article class="flex flex-col gap-4 text-[#D4af37]">
+            <h1 class="text-xl">Accademic and Educational Books</h1>
+            <div class="w-full h-60 flex gap-8">
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/accademic/accademic.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/accademic/accademic2.webp"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/accademic/accademic3.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/accademic/accademic4.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/accademic/accademic5.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+
+              <a
+                href="#"
+                class="w-full flex justify-center gap-2 items-center text-xl p-2 hover:border transition-all rounded flex-col text-center"
+                ><i class="fas fa-arrow-right text-4xl"></i> More Books</a
+              >
+            </div>
+          </article>
+
+          <article class="flex flex-col gap-4 text-[#D4af37]">
+            <h1 class="text-xl">Business and technology books</h1>
+            <div class="w-full h-60 flex gap-8">
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/business and technology/business1.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/business and technology/business2.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/business and technology/business3.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/business and technology/technology1.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/business and technology/technology2.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a
+                href="#"
+                class="w-full flex justify-center gap-2 items-center text-xl p-2 hover:border transition-all rounded flex-col text-center"
+                ><i class="fas fa-arrow-right text-4xl"></i> More Books</a
+              >
+            </div>
+          </article>
+
+          <article class="flex flex-col gap-4 text-[#D4af37]">
+            <h1 class="text-xl">Arts and lifestyle books</h1>
+            <div class="w-full h-60 flex gap-8">
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/arts and lifestyle/art1.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/arts and lifestyle/art2.webp"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/arts and lifestyle/lifestyle1.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/arts and lifestyle/lifestyle2.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a href="#" class="w-full">
+                <img
+                  src="./media/bookscover/arts and lifestyle/lifestyle3.jpg"
+                  class="w-full h-full hover:scale-95 transition-all rounded" />
+              </a>
+              <a
+                href="#"
+                class="w-full flex justify-center gap-2 items-center text-xl p-2 hover:border transition-all rounded flex-col text-center"
+                ><i class="fas fa-arrow-right text-4xl"></i> More Books</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- authors section -->
+      <section class="flex flex-col p-12 bg-[#1a1a1a] min-h-[50vh]">
+        <div class="flex gap-12 w-full h-full p-8">
+          <article
+            class="text-white/80 flex flex-col gap-4 w-full items-center justify-center text-center border border-transparent hover:border-[#D4af37]/30 hover:bg-[#D4af37]/30 rounded transition-all p-4 hover:shadow-md shadow-amber-300/30 relative">
+            <img src="./media/Auhors/paulo coelho.jpg" class="w-1/2 rounded-full" />
+            <h1 class="text-[#D4af37]">Paulo Coelho</h1>
+            <p class="text-sm">
+              Paulo Coelho is a Brazilian author best known for The Alchemist, writing inspirational
+              novels about spirituality, self-discovery, destiny, and the pursuit of personal
+              dreams.
+            </p>
+            <a href="" class="absolute top-0 right-0 left-0 bottom-0"></a>
+          </article>
+
+          <article
+            class="text-white/80 flex flex-col gap-4 w-full items-center justify-center text-center border border-transparent hover:border-[#D4af37]/30 hover:bg-[#D4af37]/30 rounded transition-all p-4 hover:shadow-md shadow-amber-300/30 relative">
+            <img src="./media/Auhors/robert kiyosaki.jpg" class="w-1/2 rounded-full" />
+            <h1 class="text-[#D4af37]">Robert Kiyosaki</h1>
+            <p class="text-sm">
+              Robert Kiyosaki is an American entrepreneur and author of Rich Dad Poor Dad, known for
+              teaching financial literacy, investing, and mindset principles for building wealth and
+              financial independence.
+            </p>
+            <a href="" class="absolute top-0 right-0 left-0 bottom-0"></a>
+          </article>
+
+          <article
+            class="text-white/80 flex flex-col gap-4 w-full items-center justify-center text-center border border-transparent hover:border-[#D4af37]/30 hover:bg-[#D4af37]/30 rounded transition-all p-4 hover:shadow-md shadow-amber-300/30 relative">
+            <img src="./media/Auhors/stephan king.jpg" class="w-1/2 rounded-full" />
+            <h1 class="text-[#D4af37]">Stephan King</h1>
+            <p class="text-sm">
+              Stephen King is an American author famous for horror, suspense, and supernatural
+              fiction, writing bestselling novels like It, The Shining, and Carrie, influencing
+              modern popular literature worldwide.
+            </p>
+            <a href="" class="absolute top-0 right-0 left-0 bottom-0"></a>
+          </article>
+
+          <article
+            class="text-white/80 flex flex-col gap-4 w-full items-center justify-center text-center border border-transparent hover:border-[#D4af37]/30 hover:bg-[#D4af37]/30 rounded transition-all p-4 hover:shadow-md shadow-amber-300/30 relative">
+            <img src="./media/Auhors/willaim shakespare.jpg" class="w-1/2 rounded-full" />
+            <h1 class="text-[#D4af37]">William Skakespare</h1>
+            <p class="text-sm">
+              William Shakespeare was an English playwright and poet, widely regarded as the
+              greatest writer in English literature, famous for plays like Hamlet, Romeo and Juliet,
+              and Macbeth.
+            </p>
+            <a href="" class="absolute top-0 right-0 left-0 bottom-0"></a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="w-full flex flex-col gap-4 text-white/90 p-4 lowback">
+      <div class="w-full flex justify-between p-2 gap-16">
+        <article class="w-max flex">
+          <ul class="flex gap-1 flex-col text-xs h-full p-2 text-white/70 max-w-max">
+            <li class="">
+              <a href="#">Home</a>
+            </li>
+            <li class="">
+              <a href="#">About us</a>
+            </li>
+            <li class="">
+              <a href="#">categories</a>
+            </li>
+          </ul>
+          <ul class="flex gap-1 flex-col text-xs h-full p-2 text-white/70 max-w-max">
+            <li class="">
+              <a href="#">Authors</a>
+            </li>
+            <li class="">
+              <a href="#">Books</a>
+            </li>
+            <li class="">
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="w-full text-left">
+          <h1>Aurum Library recomendation</h1>
+          <p class="max-w-[60vw] text-xs">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis, possimus
+            molestias perferendis numquam quo libero est, sapiente eveniet accusamus cum ipsum Et
+            saepe dicta do doloribus tenetur.
+          </p>
+        </article>
+        <article class="w-full text-xs text-justify items-center justify-center h-full">
+          <ul>
+            <li><a href="">Best books</a></li>
+            <li><a href="">Shorts Novels stories</a></li>
+            <li><a href="">moticational sentences</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="w-full flex justify-between border-t p-2 text-xs">
+        <article>
+          <p>&copy; All rights reserved by the owner</p>
+        </article>
+        <article>
+          <p>Designed by Aurum</p>
+        </article>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
