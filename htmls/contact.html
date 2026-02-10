@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../script.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
     <link rel="stylesheet" href="../style.css" />
-    <script src="../script.js" defer></script>
+    <title>Aurum | | Contact</title>
   </head>
   <body>
     <header class="w-full h-screen flex bg-[#1a1a1a]">
@@ -246,5 +247,46 @@
       </section>
     </header>
     <!-- js codes -->
+
+    <script>
+      const contactform = document.querySelector("#contactform");
+      const requestform = document.querySelector("#requestform");
+      const feedform = document.querySelector("#feedform");
+      const contactbtn = document.querySelector("#contactbtn");
+      const requestbtn = document.querySelector("#requestbtn");
+      const feedbtn = document.querySelector("#feedbtn");
+
+      function contactformopen() {
+        contactform.style.display = "flex";
+        requestform.style.display = "none";
+        feedform.style.display = "none";
+        contactbtn.style.borderBottom = "3px solid #D4af37";
+        requestbtn.style.borderBottom = "1px solid  #D4af37";
+        feedbtn.style.borderBottom = "1px solid  #D4af37";
+      }
+
+      function requestformopen() {
+        contactform.style.display = "none";
+        requestform.style.display = "flex";
+        feedform.style.display = "none";
+        requestbtn.style.borderBottom = "3px solid #D4af37";
+        contactbtn.style.borderBottom = "1px solid  #D4af37";
+        feedbtn.style.borderBottom = "1px solid  #D4af37";
+      }
+
+      function feedbackformopen() {
+        contactform.style.display = "none";
+        requestform.style.display = "none";
+        feedform.style.display = "flex";
+        feedbtn.style.borderBottom = "3px solid #D4af37";
+        requestbtn.style.borderBottom = "1px solid  #D4af37";
+        contactbtn.style.borderBottom = "1px solid  #D4af37";
+      }
+
+      function shownumber() {
+        document.querySelector("#cartnum").textContent = localStorage.getItem("number");
+      }
+      shownumber();
+    </script>
   </body>
 </html>

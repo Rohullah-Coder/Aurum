@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+@font-face {
+  font-family: "Mollani";
+  src: url("../fonts/Mollani-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Monthera";
+  src: url("../fonts/Monthera.otf");
+}
+
+@font-face {
+  font-family: "Geraldine";
+  src: url("../fonts/GERALDINE\ PERSONAL\ USE.ttf");
+}
+
+@font-face {
+  font-family: "Moralana";
+  src: url("../fonts/Moralana\ DEMO.otf");
+}
+
+@font-face {
+  font-family: "Transcity";
+  src: url("../fonts/Transcity\ DEMO.otf");
+}
+
+@theme {
+  --color-primary: #D4af37;
+  --color-secondary: #1a1a1a;
+  --color-label: #0a341f;
+
+  --font-mollani: "Mollani", sans-serif;
+  --font-monthera: "Monthera", serif;
+  --font-geraldine: "Geraldine", cursive;
+  --font-moralana: "Moralana", serif;
+  --font-transcity: "Transcity", sans-serif;
+
+  --animate-move: move 3s ease-in-out infinite alternate;
+  
+}
+
+
+
+
+@keyframes move{
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1000px) translateY(-200px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}

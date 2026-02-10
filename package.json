@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  },
+  "scripts": {
+    "run": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+  }
+}
