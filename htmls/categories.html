@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Aurum | | Categories</title>
+    <style>
+      .backimage {
+        background:
+          linear-gradient(to right, #1a1a1a, #1a1a1a99, #1a1a1a7e),
+          url("../media/bookscover/categoriesbg.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="bg-[#1a1a1a]">
+    <header class="w-full h-screen flex backimage">
+      <nav
+        class="fixed w-full flex justify-between p-2 items-center backdrop-blur-md text-white/70 bg-[#1a1a1a]/90 z-40">
+        <div class="flex text-center items-center select-none">
+          <img src="../media/logo png.png" class="h-[60px] w-[80px]" />
+          <p class="text-xl font-[monthera] text-white/70">
+            <span class="text-[#D4af37]">Aurum </span>Library
+          </p>
+        </div>
+        <ul class="flex gap-6 text-md h-full p-2 text-white/70">
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="../index.html">Home</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:content-'' after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="./About.html">About Us</a>
+          </li>
+          <li
+            class="hover:text-[#D4af37] hover:after:w-full after:w-0 after:content-'' after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="./categories.html">Categories</a>
+          </li>
+          <li
+            class="text-[#D4af37] after:w-full after:content-'' after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="./Authors.html">Authors</a>
+          </li>
+
+          <li
+            class="hover:text-[#D4af37] after:content-'' hover:after:w-full after:w-0 after:h-[1px] after:block after:bg-[#D4af37] transition-all after:transition-all after:duration-700">
+            <a href="./contact.html">Contact</a>
+          </li>
+        </ul>
+        <div class="flex gap-4 justify-center items-center text-xl">
+          <div class="relative">
+            <i
+              id="carticon"
+              class="fas fa-cart-shopping cursor-pointer hover:text-[#D4af37] transition-all text-2xl"></i>
+            <p
+              id="cartnum"
+              class="text-[#1a1a1a] absolute text-[11px] font-bold rounded-full z-3 left-1/2 top-[27%] translate-x-[-50%] translate-y-[-50%] select-none">
+              0
+            </p>
+          </div>
+          <div class="xl:hidden">
+            <i class="fas fa-bars cursor-pointer hover:text-[#D4af37] transition-all"></i>
+          </div>
+          <i class="fa-regular fa-moon cursor-pointer hover:text-[#D4af37] transition-all"></i>
+        </div>
+      </nav>
+      <!-- hero section -->
+    </header>
+
+    <!-- js codes -->
+
+    <script>
+      function shownumber() {
+        document.querySelector("#cartnum").textContent = localStorage.getItem("number");
+      }
+      shownumber();
+      // Authors Show Name
+    </script>
+  </body>
+</html>

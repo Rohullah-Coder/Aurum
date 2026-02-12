@@ -73,3 +73,5 @@ function changeMood() {
   document.querySelector("header").classList.toggle("bg-[#1a1a1a]/60");
   document.querySelector("header section div ").classList.toggle("text-white/60");
 }
+
+
